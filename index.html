@@ -1,55 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visual Queue Display</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; background: #1e293b; color: white; margin: 0; padding: 0; }
-    .container { padding: 20px; }
-    .title { font-size: 2em; }
-    .button { background: #3b82f6; color: white; padding: 10px 20px; border: none; border-radius: 12px; cursor: pointer; margin-bottom: 20px; }
-    .button:hover { background: #2563eb; }
-    .match { display: inline-block; background: #374151; border-radius: 12px; padding: 20px; margin: 10px; }
-    .team { display: flex; justify-content: space-between; margin: 10px 0; }
-    .team-name { color: #3b82f6; }
-    .status { cursor: pointer; }
-    .green { color: #10b981; }
-    .yellow { color: #facc15; }
-    .red { color: #ef4444; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Check-In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .match {
+            background-color: #1f1f1f;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .team {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 5px 10px;
+            border-radius: 12px;
+        }
+        .red-team { background-color: #ff4c4c; }
+        .blue-team { background-color: #4c7cff; }
+        .status {
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        .status.on-field { background-color: #4caf50; }
+        .status.on-deck { background-color: #ffcc00; color: #000; }
+        .status.queuing-soon { background-color: #444; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <button class="button" onclick="window.location.href='queue-checkin.html'">Go to Queue Check-In</button>
-    <h1 class="title">Avondale League Meet 3</h1>
+    <div class="header">Queue Check-In</div>
 
     <div class="match">
-      <h2>Queuing Match 13</h2>
-      <div class="team"><span class="team-name">22303</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
-      <div class="team"><span class="team-name">6255</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
+        <div>Practice 1</div>
+        <span class="team red-team">1400</span>
+        <span class="team red-team">2000</span>
+        <span class="team blue-team">3100</span>
+        <span class="team blue-team">2400</span>
+        <span class="status on-field">On field</span>
     </div>
 
     <div class="match">
-      <h2>Queuing Match 14</h2>
-      <div class="team"><span class="team-name">27583</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
-      <div class="team"><span class="team-name">25093</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
+        <div>Practice 2</div>
+        <span class="team red-team">2900</span>
+        <span class="team red-team">3000</span>
+        <span class="team blue-team">3200</span>
+        <span class="team blue-team">1500</span>
+        <span class="status on-deck">On deck</span>
     </div>
-  </div>
 
-  <script>
-    function toggleStatus(element) {
-      if (element.textContent === '🔴') {
-        element.textContent = '✅';
-        element.className = 'status green';
-      } else if (element.textContent === '✅') {
-        element.textContent = '🟡';
-        element.className = 'status yellow';
-      } else {
-        element.textContent = '🔴';
-        element.className = 'status red';
-      }
-    }
-  </script>
+    <div class="match">
+        <div>Practice 3</div>
+        <span class="team red-team">1200</span>
+        <span class="team red-team">2300</span>
+        <span class="team blue-team">3500</span>
+        <span class="team blue-team">2700</span>
+        <span class="status queuing-soon">Queuing soon</span>
+    </div>
+
+    <a href="index.html" class="queue-button">Back to Dashboard</a>
 </body>
 </html>
