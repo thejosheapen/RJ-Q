@@ -3,78 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Queue Display</title>
+  <title>Visual Queue Display</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #1c2733;
-      color: white;
-      text-align: center;
-    }
-    .container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 50px;
-    }
-    .card {
-      background: #36454f;
-      padding: 20px;
-      border-radius: 12px;
-      width: 300px;
-    }
-    .match-number {
-      font-size: 48px;
-      color: #3ddc97;
-    }
-    .team {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 10px 0;
-      font-size: 20px;
-    }
-    .status {
-      cursor: pointer;
-      font-size: 24px;
-    }
-    .not-checked-in::after { content: ''; }
-    .checked-in::after { content: '✅'; color: #3ddc97; }
-    .human-only::after { content: '🧑'; color: #ffcc00; }
+    body { font-family: Arial, sans-serif; text-align: center; background: #1e293b; color: white; margin: 0; padding: 0; }
+    .container { padding: 20px; }
+    .title { font-size: 2em; }
+    .button { background: #3b82f6; color: white; padding: 10px 20px; border: none; border-radius: 12px; cursor: pointer; margin-bottom: 20px; }
+    .button:hover { background: #2563eb; }
+    .match { display: inline-block; background: #374151; border-radius: 12px; padding: 20px; margin: 10px; }
+    .team { display: flex; justify-content: space-between; margin: 10px 0; }
+    .team-name { color: #3b82f6; }
+    .status { cursor: pointer; }
+    .green { color: #10b981; }
+    .yellow { color: #facc15; }
+    .red { color: #ef4444; }
   </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button" onclick="window.location.href='queue-checkin.html'">Go to Queue Check-In</button>
+    <h1 class="title">Avondale League Meet 3</h1>
+
+    <div class="match">
+      <h2>Queuing Match 13</h2>
+      <div class="team"><span class="team-name">22303</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
+      <div class="team"><span class="team-name">6255</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
+    </div>
+
+    <div class="match">
+      <h2>Queuing Match 14</h2>
+      <div class="team"><span class="team-name">27583</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
+      <div class="team"><span class="team-name">25093</span><span class="status" onclick="toggleStatus(this)">🔴</span></div>
+    </div>
+  </div>
+
   <script>
     function toggleStatus(element) {
-      if (element.classList.contains('not-checked-in')) {
-        element.classList.remove('not-checked-in');
-        element.classList.add('checked-in');
-      } else if (element.classList.contains('checked-in')) {
-        element.classList.remove('checked-in');
-        element.classList.add('human-only');
+      if (element.textContent === '🔴') {
+        element.textContent = '✅';
+        element.className = 'status green';
+      } else if (element.textContent === '✅') {
+        element.textContent = '🟡';
+        element.className = 'status yellow';
       } else {
-        element.classList.remove('human-only');
-        element.classList.add('not-checked-in');
+        element.textContent = '🔴';
+        element.className = 'status red';
       }
     }
   </script>
-</head>
-<body>
-  <h1>Avondale League Meet 3</h1>
-  <div class="container">
-    <div class="card">
-      <h2>Match 13</h2>
-      <div class="team"><span>22303</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-      <div class="team"><span>6255</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-      <div class="team"><span>20804</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-      <div class="team"><span>25069</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-    </div>
-    <div class="card">
-      <h2>Match 14</h2>
-      <div class="team"><span>27583</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-      <div class="team"><span>25093</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-      <div class="team"><span>25098</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-      <div class="team"><span>20804</span> <span class="status not-checked-in" onclick="toggleStatus(this)"></span></div>
-    </div>
-  </div>
-  <p>Next Match: <strong>15</strong></p>
 </body>
 </html>
