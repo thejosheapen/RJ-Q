@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Queue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1e1e2e;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .match-box {
+            background: #2a2a3b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .teams {
+            display: flex;
+            justify-content: space-around;
+            font-size: 1.5em;
+        }
+        .team {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .blue { color: #4ca6ff; }
+        .red { color: #ff4c4c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Avondale League Meet 3</h1>
+        <div class="match-box">
+            <h2>Now Playing: <span id="current-match">11</span></h2>
+        </div>
+        <div class="match-box">
+            <h2>On Deck - Match <span id="on-deck-match">12</span></h2>
+            <div class="teams">
+                <span class="team blue" id="team-blue-1">22303</span>
+                <span class="team red" id="team-red-1">6255</span>
+            </div>
+            <div class="teams">
+                <span class="team blue" id="team-blue-2">20804</span>
+                <span class="team red" id="team-red-2">25069</span>
+            </div>
+        </div>
+        <div class="match-box">
+            <h2>Queuing - Match <span id="queue-match">13</span></h2>
+            <div class="teams">
+                <span class="team blue" id="team-blue-3">27583</span>
+                <span class="team red" id="team-red-3">25093</span>
+            </div>
+            <div class="teams">
+                <span class="team blue" id="team-blue-4">25098</span>
+                <span class="team red" id="team-red-4">20804</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
